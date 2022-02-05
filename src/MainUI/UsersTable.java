@@ -1,5 +1,6 @@
 package MainUI;
 
+import Game2048_test.App;
 import Users.RegisteredUser;
 import Users.User;
 
@@ -10,17 +11,18 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * purpose of this class is to create a table which includes usernames and whose best record's taken time
  */
 public class UsersTable extends JTable {
     private final String[] title = new String[]{"Username", "Taken Time"};
+
     /**
      * purpose of this method is to set the data into the table and style of the table
      */
     public UsersTable(Map<String, User> usersData) {
+
         DefaultTableModel model = new DefaultTableModel(dealWithData(usersData), title) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -49,14 +51,29 @@ public class UsersTable extends JTable {
         this.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 
         this.getTableHeader().setFont(new Font("Times New Roman", Font.BOLD, 16));
-        DefaultTableCellRenderer defaultCell = new DefaultTableCellRenderer();
-        defaultCell.setHorizontalAlignment(JLabel.CENTER);
+
+        UsersTable finalThis = this;
+        DefaultTableCellRenderer defaultCell = new DefaultTableCellRenderer() {
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                if (App.currentUser != null) {
+                    if (finalThis.getValueAt(row, 0).equals(App.currentUser.username)) {
+                        setForeground(Color.red);
+                    } else {
+                        setForeground(Color.BLACK);
+                    }
+                }
+                setHorizontalAlignment(JLabel.CENTER);
+                return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            }
+        };
         this.setDefaultRenderer(Object.class, defaultCell);
 
         ((DefaultTableCellRenderer) this.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
 
         this.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.setSelectionBackground(new Color(184, 207, 229));
+
+
     }
 
     /**
@@ -80,7 +97,7 @@ public class UsersTable extends JTable {
         int index = 0;
         for (String username : newUsersData.keySet()) {
             data[index][0] = username;
-            data[index][1] = ((RegisteredUser) usersData.get(username)).bestTakeTime + "";
+            data[index][1] = ((RegisteredUser) usersData.get(username)).bestTakeTime == 0 ? "null" : ((RegisteredUser) usersData.get(username)).bestTakeTime + " s";
             index++;
         }
         return data;

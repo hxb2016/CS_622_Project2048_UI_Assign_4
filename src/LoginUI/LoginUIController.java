@@ -34,9 +34,7 @@ public class LoginUIController {
                             CreateBlockArrayData.creatBlockArrayData(App.interfaceSize, App.currentUser);
                             MainUIBlocksArrayPaneUpdate.updateUI(App.mainUI.blocksArray, App.currentUser.currentBlocksArrayData, App.mainUI.blocksArrayPane);
                             App.loginUI.setVisible(false);
-
                             UpdateTimerPane.startTimer();
-
                             App.mainUI.updateLastBestRecord();
                         } else {
                             RegisteredUser newCurrentUser = (RegisteredUser) (App.usersData.get(username));
@@ -47,17 +45,14 @@ public class LoginUIController {
                             try {
                                 SaveUsersData.saveUsersData(App.usersData, App.userDataPath);
                                 OptionPane.setJOptionPaneMessage(App.mainUI, "Successfully Login and Save!", "Message", null);
-
                                 App.mainUI.updateLastBestRecord();
-
-                                App.mainUI.usersScrollPane.updateUsersTable();
-
                             } catch (Exception ex) {
                                 System.out.println("Error happened when save data.");
                                 ex.printStackTrace();
                             }
                             App.loginUI.setVisible(false);
                         }
+                        App.mainUI.usersScrollPane.updateUsersTable();
 
                     } else {
                         OptionPane.setJOptionPaneMessage(App.mainUI, "Wrong Password!", "Message", null);
@@ -78,6 +73,7 @@ public class LoginUIController {
                 } else {
                     signUpBeforeGame();
                 }
+                App.mainUI.usersScrollPane.updateUsersTable();
             }
         });
 
@@ -199,11 +195,7 @@ public class LoginUIController {
                 try {
                     SaveUsersData.saveUsersData(App.usersData, App.userDataPath);
                     OptionPane.setJOptionPaneMessage(App.mainUI, "Successfully Registered and Save!", "Message", null);
-
                     App.mainUI.updateLastBestRecord();
-
-                    App.mainUI.usersScrollPane.updateUsersTable();
-
                 } catch (Exception e) {
                     System.out.println("Error happened when save data.");
                     e.printStackTrace();

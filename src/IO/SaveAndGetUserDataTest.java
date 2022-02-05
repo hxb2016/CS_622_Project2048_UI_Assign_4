@@ -14,7 +14,7 @@ import java.util.Map;
  * Because you need save data first, and then you can get it, I combine the two test
  */
 public class SaveAndGetUserDataTest {
-    static String userDataPath = "src" + File.separator + "UserData" + File.separator + "DataTest.txt";
+    static String userDataPath = "src" + File.separator + "UserData" + File.separator + "DataTest.dat";
 
     @Test
     public void saveAndGetUsersDataTest() throws IOException, ClassNotFoundException {

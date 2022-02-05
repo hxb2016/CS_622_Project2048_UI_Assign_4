@@ -19,6 +19,7 @@ public class UsersScrollPane extends JScrollPane {
         this.usersTable = new UsersTable(this.usersData);
         this.setViewportView(this.usersTable);
     }
+
     /**
      * Return a UsersScrollPane with current system style
      */
