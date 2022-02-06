@@ -34,7 +34,6 @@ public class LoginUIController {
                             CreateBlockArrayData.creatBlockArrayData(App.interfaceSize, App.currentUser);
                             MainUIBlocksArrayPaneUpdate.updateUI(App.mainUI.blocksArray, App.currentUser.currentBlocksArrayData, App.mainUI.blocksArrayPane);
                             App.loginUI.setVisible(false);
-                            UpdateTimerPane.startTimer();
                             App.mainUI.updateLastBestRecord();
                         } else {
                             RegisteredUser newCurrentUser = (RegisteredUser) (App.usersData.get(username));
@@ -128,8 +127,6 @@ public class LoginUIController {
                 CreateBlockArrayData.creatBlockArrayData(App.interfaceSize, App.currentUser);
                 MainUIBlocksArrayPaneUpdate.updateUI(App.mainUI.blocksArray, App.currentUser.currentBlocksArrayData, App.mainUI.blocksArrayPane);
                 App.loginUI.setVisible(false);
-
-                UpdateTimerPane.startTimer();
             }
         });
 
@@ -162,7 +159,6 @@ public class LoginUIController {
                 MainUIBlocksArrayPaneUpdate.updateUI(App.mainUI.blocksArray, App.currentUser.currentBlocksArrayData, App.mainUI.blocksArrayPane);
                 App.loginUI.setVisible(false);
 
-                UpdateTimerPane.startTimer();
             } else {
                 OptionPane.setJOptionPaneMessage(App.mainUI, "User name already exists!", "Message", null);
             }

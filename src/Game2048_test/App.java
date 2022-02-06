@@ -15,9 +15,9 @@ import java.util.Map;
 
 /**
  * The purpose of this class is to run the game
- * Notes: In order to save time for test, I change the winning number from 2048 to 16 (WinNum = 16).
+ * Notes: In order to save time for test, I change the win number from 2048 to 16 (WinNum = 16).
  * Because it will very long time if the number is too large. which means that any number is larger than 16,
- * the game will judged that you win.
+ * it will judge that you win.
  */
 public class App {
     public static User currentUser = null;

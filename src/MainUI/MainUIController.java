@@ -80,7 +80,8 @@ public class MainUIController {
                     CreateBlockArrayData.creatBlockArrayData(App.interfaceSize, App.currentUser);//init current user's block array data
                     MainUIBlocksArrayPaneUpdate.updateUI(App.mainUI.blocksArray, App.currentUser.currentBlocksArrayData, App.mainUI.blocksArrayPane);//update UI
                     UpdateTimerPane.endTimer();
-                    UpdateTimerPane.startTimer();
+                    App.mainUI.timerPane.setSecond("0");
+                    Operate.operateTime = 0;
                     App.ifEnd = false;
                 } catch (Exception ex) {
                     ex.printStackTrace();

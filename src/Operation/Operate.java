@@ -18,6 +18,7 @@ import java.util.HashMap;
  */
 public class Operate {
     public static boolean ifMoving = false;
+    public static int operateTime = 0;
 
     /**
      * The purpose of operation method is to deal with moving and combining of block, when the game system receive a command
@@ -27,6 +28,10 @@ public class Operate {
             System.exit(0);
         }
         if (!App.ifEnd) {
+            operateTime++;
+            if(operateTime==1){
+                UpdateTimerPane.startTimer();
+            }
             if (code == 37 || code == 38) {
                 for (int i = 0; i < currentUser.currentBlocksArrayData.length; i++) {
                     for (int j = 0; j < currentUser.currentBlocksArrayData[i].length; j++) {
