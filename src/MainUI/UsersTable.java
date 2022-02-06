@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * purpose of this class is to create a table which includes usernames and whose best record's taken time
  */
 public class UsersTable extends JTable {
-    private final String[] title = new String[]{"Username", "Taken Time"};
+    private final String[] title = new String[]{"Username", "Best record"};
 
     /**
      * purpose of this method is to set the data into the table and style of the table
