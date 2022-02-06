@@ -29,7 +29,7 @@ public class Operate {
         }
         if (!App.ifEnd) {
             operateTime++;
-            if(operateTime==1){
+            if (operateTime == 1) {
                 UpdateTimerPane.startTimer();
             }
             if (code == 37 || code == 38) {
