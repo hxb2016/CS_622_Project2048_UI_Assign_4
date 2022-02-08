@@ -5,7 +5,7 @@ import Block.Block;
 /**
  * The purpose of this class is to create a registered user by given username, age and gender
  */
-public class RegisteredUser extends User implements Comparable {
+public class RegisteredUser extends User {
     public Block[][] lastBlocksArrayData;
     public int lastTakeTime;
     public Block[][] bestBlocksArrayData = null;
@@ -67,10 +67,5 @@ public class RegisteredUser extends User implements Comparable {
     @Override
     public void setIntroduce(String introduction) {
         this.introduce = introduction;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return ((RegisteredUser) o).bestTakeTime - this.bestTakeTime;
     }
 }

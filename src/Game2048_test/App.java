@@ -41,11 +41,11 @@ public class App {
         }
 
         mainUI = new MainUI();//init JFrame
-        MainUIController.setUIController();//Set controller for UI
+        MainUIController.setUIController();
 
-        loginUI = new LoginUI(mainUI);//Get login pane and show on screen
-        LoginUIController.setController();// Set actions of the buttons on login pane
-        loginUI.setVisible(true);//Show login pane on screen
+        loginUI = new LoginUI(mainUI);
+        LoginUIController.setController();
+        loginUI.setVisible(true);
     }
 
 }

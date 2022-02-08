@@ -81,7 +81,7 @@ public class MainUIController {
                     MainUIBlocksArrayPaneUpdate.updateUI(App.mainUI.blocksArray, App.currentUser.currentBlocksArrayData, App.mainUI.blocksArrayPane);//update UI
                     UpdateTimerPane.endTimer();
                     App.mainUI.timerPane.setSecond("0");
-                    Operate.operateTime = 0;
+                    Operate.ifStartOperate = false;
                     App.ifEnd = false;
                 } catch (Exception ex) {
                     ex.printStackTrace();
